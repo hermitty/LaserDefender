@@ -65,6 +65,11 @@ public class Player : MonoBehaviour {
             StopCoroutine(firingCoroutine);           
     }
 
+    public int GetHealth()
+    {
+        return health;
+    }
+
     IEnumerator FireContinuously()
     {
         while(true)

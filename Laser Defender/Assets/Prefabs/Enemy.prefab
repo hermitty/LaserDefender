@@ -124,6 +124,7 @@ MonoBehaviour:
   starEffect: {fileID: 1226349403825436, guid: 0d608b51bbdab5c4baf7aeace85028a1, type: 2}
   dyingSound: {fileID: 8300000, guid: 40b2c047ef4ce2847b0b8a9064bf2b12, type: 3}
   dyingVolume: 0.321
+  addThisScore: 20
 --- !u!212 &212256010427730528
 SpriteRenderer:
   m_ObjectHideFlags: 1

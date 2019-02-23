@@ -14,6 +14,7 @@ public class Enemy : MonoBehaviour {
     [SerializeField] GameObject starEffect;
     [SerializeField] AudioClip dyingSound;
     [SerializeField] [Range(0,1)] float dyingVolume = 0.3f;
+    [SerializeField] int addThisScore = 20;
 
     // Use this for initialization
     void Start () {
@@ -60,5 +61,6 @@ public class Enemy : MonoBehaviour {
         Destroy(stars, 1);
         AudioSource.PlayClipAtPoint(dyingSound, Camera.main.transform.position, dyingVolume);
         Destroy(gameObject);
+        FindObjectOfType<GameSession>().AddToScore(addThisScore);
     }
 }
