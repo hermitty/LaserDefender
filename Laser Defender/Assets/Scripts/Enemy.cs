@@ -11,6 +11,9 @@ public class Enemy : MonoBehaviour {
     [SerializeField] float maxTimeBetweenShoots = 3f;
     [SerializeField] GameObject laserPrefab;
     [SerializeField] float projectileSpeed = -10f;
+    [SerializeField] GameObject starEffect;
+    [SerializeField] AudioClip dyingSound;
+    [SerializeField] [Range(0,1)] float dyingVolume = 0.3f;
 
     // Use this for initialization
     void Start () {
@@ -45,6 +48,17 @@ public class Enemy : MonoBehaviour {
         if (!damageDealer) return;
         health -= damageDealer.GetDamage();
         damageDealer.Hit();
-        if (health <= 0) Destroy(gameObject);
+        if (health <= 0)
+        {
+            Die();
+        }
+    }
+
+    private void Die()
+    {
+        GameObject stars = Instantiate(starEffect, transform.position, Quaternion.identity) as GameObject;
+        Destroy(stars, 1);
+        AudioSource.PlayClipAtPoint(dyingSound, Camera.main.transform.position, dyingVolume);
+        Destroy(gameObject);
     }
 }
