@@ -1,3 +1,2 @@
 # LaserDefender
-Game
-C# Unity course 
+Game C# Unity course 
